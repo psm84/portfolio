@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajwal Mohite - Space Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?space,stars') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.2; }
+            100% { opacity: 1; }
+        }
+        h1, h2 {
+            text-shadow: 0 0 10px cyan;
+        }
+        .rocket-button {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            padding: 10px 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+            transition: transform 0.3s ease-in-out;
+        }
+        .rocket-button:hover {
+            transform: translateY(-5px);
+        }
+        .social-icons svg {
+            filter: drop-shadow(0 0 5px cyan);
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const starsContainer = document.querySelector(".stars");
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement("div");
+                star.classList.add("star");
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                starsContainer.appendChild(star);
+            }
+        });
+    </script>
+</head>
+<body class="text-white">
+    <div class="stars"></div>
+    <div class="min-h-screen flex flex-col items-center justify-center text-center px-4">
+        <h1 class="text-5xl font-bold mb-4 text-cyan-400">
+            Prajwal Mohite
+        </h1>
+        <p class="text-2xl text-blue-300 mb-4">Data Science Professional</p>
+        <div class="glass max-w-3xl">
+            <p class="text-gray-200 mb-6">
+                Motivated Data Science professional with expertise in Python, Machine Learning, and Data Analysis.
+                Currently pursuing an M.Sc. in Data Science at NIELIT Calicut.
+            </p>
+            <h2 class="text-xl font-bold text-blue-300">Technical Skills</h2>
+            <ul class="text-gray-300 text-left list-disc list-inside">
+                <li>Programming: Python, SQL, R</li>
+                <li>Data Science: Pandas, NumPy, Power BI, AI Prompt Engineering</li>
+                <li>Version Control: Git, GitHub</li>
+            </ul>
+            <h2 class="text-xl font-bold text-blue-300 mt-4">Projects</h2>
+            <ul class="text-gray-300 text-left list-disc list-inside">
+                <li><strong>Music Player</strong> - Built with Python & Tkinter</li>
+                <li><strong>Data Analysis Dashboard</strong> - Built with Power BI</li>
+            </ul>
+            <h2 class="text-xl font-bold text-blue-300 mt-4">Contact</h2>
+            <div class="flex space-x-4 social-icons">
+                <a href="mailto:prajwalmohite523@gmail.com" class="rocket-button">Email</a>
+                <a href="https://www.linkedin.com/in/prajwal-mohite" class="rocket-button">LinkedIn</a>
+                <a href="https://github.com/psm84" class="rocket-button">GitHub</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
